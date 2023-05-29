@@ -1,0 +1,30 @@
+{
+  "name": "avistack",
+  "version": "1.0.0",
+  "description": "Async NodeJS wrapper for the Aviationstack API",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eros/Avistack.git"
+  },
+  "keywords": [
+    "Aviation",
+    "AviationStack",
+    "Node",
+    "Async"
+  ],
+  "author": "George Marr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Eros/Avistack/issues"
+  },
+  "homepage": "https://github.com/Eros/Avistack#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "node-cache": "^5.1.2"
+  }
+}
