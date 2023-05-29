@@ -1,4 +1,5 @@
 import { CacheKeys } from '../enums/CacheKeys';
+import { DataError } from '../errors/DataError';
 import { FlightData } from '../types/FlightData';
 import { AvistackModule } from './AvistackModule';
 
@@ -14,7 +15,7 @@ export class LiveFlights extends AvistackModule {
         const allFlights: FlightData[] = [];
 
         if (Array.isArray(responseData['results'])) {
-            responseData['results'].forEach(flight => {
+            responseData['data'].forEach(flight => {
                 allFlights.push({
                     date: flight['flight_date'],
                     status: flight['status'],
@@ -65,7 +66,7 @@ export class LiveFlights extends AvistackModule {
                 });
             });
         } else {
-            throw new Error('DataError: results is not an array');
+            throw new DataError('Live flights data is not of type Array.');
         }
 
         this.cache.set(CacheKeys.LiveFlightsData, allFlights);

@@ -21,7 +21,7 @@ export class AvistackRequest {
 
         axios.get(url)
             .then(res => { 
-                response = res.data;
+                response = res;
                 console.log(response);
             }).catch(error => {
                 throw error;

@@ -3,4 +3,6 @@ export enum CacheKeys {
     LiveFlightsRaw,
     HistoricalFlightsData,
     HistorialFlightsRaw,
+    AirlineRouteRaw,
+    AirlineRouteData
 }

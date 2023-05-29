@@ -5,14 +5,15 @@ require('dotenv').config();
 
 const avistack: Avistack = new Avistack(process.env.TEST_KEY);
 
-async function testRequest() {
-    new AvistackRequest(avistack).get('flights');
+async function testLiveFlights() {
+    console.log(await avistack.liveFlights.getRawData());
 }
+
 
 async function testHistorical() {
-    new AvistackRequest(avistack).get('flights', 'flight_date', '2019-12-11');
+
 }
 
-testHistorical();
+testLiveFlights();
 
-// testRequest();
+// testHistorical();

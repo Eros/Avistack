@@ -1,10 +1,11 @@
 import { CacheKeys } from "../enums/CacheKeys";
+import { DataError } from "../errors/DataError";
 import { FlightData } from "../types/FlightData";
 import { AvistackModule } from "./AvistackModule";
 
 export class HistoricalFlights extends AvistackModule {
 
-    public async getOnDate(date: string): Promise<FlightData[]> {
+    public async getForDate(date: string): Promise<FlightData[]> {
         if (this.cache.get(CacheKeys.HistoricalFlightsData + '_' + date)) {
             return this.cache.get(CacheKeys.HistoricalFlightsData + '_' + date);
         }
@@ -65,7 +66,7 @@ export class HistoricalFlights extends AvistackModule {
                 });
             });
         } else {
-            throw new Error('DataError: results is not an array');
+            throw new DataError('History flights data is not of type Array.');
         }
 
         this.cache.set(CacheKeys.HistoricalFlightsData + '_' + date, allFlights);
